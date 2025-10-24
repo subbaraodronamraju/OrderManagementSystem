@@ -1,6 +1,6 @@
 package com.gkdigital.dto;
 
-import jakarta.persistence.Column;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,21 +9,24 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ItemResponseDto {
+	
+	 
+	  private long itemId;
 
-	  @Column(nullable = false ,unique = true)
+	 
 	  private String itemName;
 	 
-	  @Column(nullable = false)
+	 
 	  private double itemPrice;
 	  
-	 @Column(nullable = false)
+	 
 	 private double itemRating;
 	
 
-	 @Column(nullable = false)
+	
 	 private double itemStock;
 	 
-	 @Column(nullable = false)
+	
 	 private boolean isAvailable;
 
 	
