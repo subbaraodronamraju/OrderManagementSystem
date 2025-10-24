@@ -13,5 +13,16 @@ public interface ItemService  {
 
 	public List<ItemResponseDto> findAll();
 
+	public ItemResponseDto getNameById(long id);
+
+    public List<ItemResponseDto> addAllItems(List<ItemRequestDto> itemRequestDto);
+	
+		
+
+	
+		
+		
+	
+
 	 
 }
