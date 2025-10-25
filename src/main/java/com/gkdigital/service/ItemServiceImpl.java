@@ -18,11 +18,9 @@ import com.gkdigital.model.Item;
 @Service
 public class ItemServiceImpl  implements ItemService{
 	
-      private final	ItemRepository itemRepository;
+   private final ItemRepository itemRepository;
   
-  
-
-	public ItemServiceImpl(ItemRepository itemRepsitory) {
+    public ItemServiceImpl(ItemRepository itemRepsitory) {
 	this.itemRepository = itemRepsitory;
 }
 
@@ -46,15 +44,11 @@ public class ItemServiceImpl  implements ItemService{
 	@Override
 	public List<ItemResponseDto> findAll() {
 		List<Item> itemList = itemRepository.findAll();
-		
 		List<ItemResponseDto> itemResponse = new ArrayList<>();
-		
-		
 		for(Item items:itemList) {
-			ItemResponseDto item = new ItemResponseDto();
-			
-			BeanUtils.copyProperties(items, item);
-			itemResponse.add(item);
+		ItemResponseDto item = new ItemResponseDto();
+		BeanUtils.copyProperties(items, item);
+		itemResponse.add(item);
 		}
 		  
 		return itemResponse;
@@ -75,50 +69,35 @@ public class ItemServiceImpl  implements ItemService{
 	@Override
 	public List<ItemResponseDto> addAllItems(List<ItemRequestDto> itemRequestDto) {
          List<Item> itemsList = new ArrayList<>();
-         
-		
-		for(ItemRequestDto items : itemRequestDto) {
-			Item item = new Item();
-			BeanUtils.copyProperties(items, item);
-			itemsList.add(item);
+   		for(ItemRequestDto items : itemRequestDto) {
+		Item item = new Item();
+		BeanUtils.copyProperties(items, item);
+		itemsList.add(item);
 		}
-			List<Item> savedItems = itemRepository.saveAll(itemsList);
-			List<ItemResponseDto> itemsDto= new ArrayList<>();
-			for(Item savedItem: savedItems) {
-				ItemResponseDto itemResponse = new ItemResponseDto();
-				BeanUtils.copyProperties(savedItem, itemResponse);
-				itemsDto.add(itemResponse);
+		List<Item> savedItems = itemRepository.saveAll(itemsList);
+		List<ItemResponseDto> itemsDto= new ArrayList<>();
+		for(Item savedItem: savedItems) {
+			ItemResponseDto itemResponse = new ItemResponseDto();
+			BeanUtils.copyProperties(savedItem, itemResponse);
+			itemsDto.add(itemResponse);
 				
 			}
-			
 			return itemsDto;
-
-
-
-	
-		
-	
-		
 	}
 
 
+
+	@Override
+	public ItemResponseDto updateItem(long id, double itemRating) {
+		Item itemById = itemRepository.findById(id).get();
+		itemById.setItemRating(itemRating);
+		ItemResponseDto itemResponseDto = new ItemResponseDto();
+		BeanUtils.copyProperties(itemById, itemResponseDto);
+		
+		return itemResponseDto; 
+	}
+	
+
+
    
-
-
-
-	
-	
-
-
-
-	
-
-
-	
-
-
-	
-	
- 
-	
 }

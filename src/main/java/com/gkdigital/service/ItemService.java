@@ -18,6 +18,9 @@ public interface ItemService  {
 	public ItemResponseDto getNameById(long id);
 
     public List<ItemResponseDto> addAllItems(List<ItemRequestDto> itemRequestDto);
+
+	public ItemResponseDto updateItem(long id, double itemRating);
+    
 	
 		
 
