@@ -14,7 +14,7 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
     
 	public ItemRequestDto save(ItemResponseDto itemResponseDto);
 
-	public ItemResponseDto saveAll(List<ItemRequestDto> itemRequestDto);
+	
 	
 	
 	
