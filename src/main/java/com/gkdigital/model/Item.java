@@ -1,6 +1,10 @@
 package com.gkdigital.model;
 
 
+
+
+
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -36,6 +40,8 @@ public class Item {
   
   @Column(nullable = false)
   private boolean isAvailable;
+  
+ 
 
   public Item(String itemName, double itemPrice, double itemRating, double itemStock, boolean isAvailable) {
 	super();

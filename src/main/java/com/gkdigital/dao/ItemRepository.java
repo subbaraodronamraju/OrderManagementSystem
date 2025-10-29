@@ -13,9 +13,6 @@ import com.gkdigital.model.Item;
 public interface ItemRepository extends JpaRepository<Item, Long> {
     
 	public ItemRequestDto save(ItemResponseDto itemResponseDto);
-
-	
-	
 	
 	
 }
